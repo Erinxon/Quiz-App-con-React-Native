@@ -17,7 +17,7 @@ export default function MostrarPreguntas(props) {
   const [idPregunta, setIdpregunta] = React.useState(1)
   const [desactivar, setDesactivar] = React.useState(false)
   const [countScore, setCountScore] = React.useState(0)
-  
+
   React.useEffect(() => {
     setPregunta(Preguntas.listaPreguntas)
   }, [])
@@ -65,7 +65,6 @@ export default function MostrarPreguntas(props) {
       setTimeout(() => {
         props.navigation.navigate("Resultado", { numPreguntas: getPregunta.length, NumCount: countScore })
         reiniciar()
-        console.log(cont)
       }, 0)
     }
   }
@@ -73,7 +72,6 @@ export default function MostrarPreguntas(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Quiz App</Text>
-      <Text style={styles.titulo}>{countScore}</Text>
       <Text style={{ marginRight: 10, color: '#fff', fontWeight: 'bold', textAlign: 'right' }}>{`Pregunta ${idPregunta}/${getPregunta.length}`}</Text>
       <Text style={styles.item}>{preguntaActual.map(p => p.pregunta)}</Text>
       <CheckBox
